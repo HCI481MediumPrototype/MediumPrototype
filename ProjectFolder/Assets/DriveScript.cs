@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DriveScript : MonoBehaviour {
 
-	public float acceleration = 0.01f;
-	public float brakeSpeed = 0.5f;
+	public float acceleration = 0.005f;
+	public float brakeSpeed = 0.1f;
 	private float curSpeed = 0f;
 	public float turnDamper = 0.02f;
 	public float maxSpeed = 1f;
@@ -33,8 +33,9 @@ public class DriveScript : MonoBehaviour {
 		transform.Rotate(new Vector3(0,-TurningWheelScript.curRotation*turnDamper * curSpeed,0));
 	}
 	
-	public float Velocity()
+	void OnGUI()
 	{
-	return curSpeed;
+		GUI.Label(new Rect(330, Screen.height -50, 100, 30), (curSpeed*100).ToString());
 	}
+	
 }
