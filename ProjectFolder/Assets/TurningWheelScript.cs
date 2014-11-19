@@ -6,7 +6,7 @@ public class TurningWheelScript : MonoBehaviour {
 public float turnSpeed = 2f;
 public float highTurnSpeed = 5f;
 public float lowTurnSpeed = 0.5f;
-private float curRotation = 0;
+public static float curRotation = 0;
 public float maxTurn = 720f;
 	
 	// Use this for initialization
@@ -31,6 +31,11 @@ public float maxTurn = 720f;
 		transform.Rotate(new Vector3(0,0,Input.GetAxis("Horizontal")*turnSpeed));
 		curRotation += Input.GetAxis("Horizontal")*turnSpeed;
 	}
+	}
+	if(Input.GetKeyDown(KeyCode.Space))
+	{
+	transform.Rotate(new Vector3(0,0,-curRotation));
+	curRotation = 0;
 	}
 	}
 }
