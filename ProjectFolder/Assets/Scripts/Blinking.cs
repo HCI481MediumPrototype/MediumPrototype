@@ -8,9 +8,9 @@ public class Blinking : MonoBehaviour
 {
 	private float onTime = 1f;		// How many seconds it stays on for
 	private float offTime = 0.5f;	// How many seconds it stays off for
-	public bool active = true;
 
-	private bool visible;
+	private bool activated = false;
+	private bool visible = false;
 	private float counter = 0;
 	private GUITexture texture;
 
@@ -20,13 +20,46 @@ public class Blinking : MonoBehaviour
 		visible = active;
 		texture = this.GetComponent<GUITexture>();
 	}
-	
+
+
+	/**
+	 * Toggles on/off this blinking texture
+	 */ 
+	public void Toggle()
+	{
+		activated = !activated;
+		counter = 0;
+
+		if(activated)
+			TurnOn();
+		else
+			TurnOff();
+	}
+
+
+	public void TurnOn()
+	{
+		visible = true;
+		texture.enabled = true;
+	}
+	public void TurnOff()
+	{
+		visible = false;
+		texture.enabled = false;
+	}
+
+
+
+	public bool isActive()
+	{
+		return activated;
+	}
+
 
 	void Update () {
-		if (active)
+		if (activated)
 		{
 			counter += Time.deltaTime;
-			Debug.Log(counter + " : " + onTime);
 			if(visible)
 			{
 				// Count up till we hit the time we hsould turn it off

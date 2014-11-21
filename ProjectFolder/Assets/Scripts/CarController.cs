@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour {
 	public float power = 0.0f;
 	public float brake = 0.0f;
 	public float steer = 0.0f;
+	public float brakeFactor = 1f;
 	
 	float maxSteer = 25.0f;
 
@@ -35,7 +36,7 @@ public class CarController : MonoBehaviour {
 	{
 		power = Input.GetAxis("Vertical") * enginePower * Time.deltaTime * 250.0f;
 		steer = Input.GetAxis("Horizontal") * maxSteer;
-		brake = Input.GetKey("space") ? rigidbody.mass * 0.1f: 0;
+		brake = Input.GetKey("space") ? rigidbody.mass * brakeFactor: 0;
 
 		// Set angle of our wheel colliders
 		frontLeftWheel.steerAngle = -steer;
@@ -66,5 +67,11 @@ public class CarController : MonoBehaviour {
 
 		// Update GUI values based on the state of the car
 		Speedometer.text = currentSpeed + " Km/H";
+	}
+
+
+	void FixedUpdate()
+	{
+		rigidbody.rotation = new Quaternion(rigidbody.rotation.x, rigidbody.rotation.y, 0, rigidbody.rotation.w);
 	}
 }
