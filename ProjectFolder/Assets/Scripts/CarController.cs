@@ -12,7 +12,7 @@ public class CarController : MonoBehaviour {
 	public float power = 0.0f;
 	public float brake = 0.0f;
 	public float steer = 0.0f;
-	public float brakeFactor = 1f;
+	public float brakeFactor = 100f;
 	
 	float maxSteer = 25.0f;
 
@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour {
 	public WheelCollider rearRightWheel;
 
 	private GUIText Speedometer;
+	private GUIText BrakeMessage;
 	
 	void Start()
 	{
@@ -29,6 +30,7 @@ public class CarController : MonoBehaviour {
 		rigidbody.centerOfMass = new Vector3(0, -0.5f ,0.3f);
 
 		Speedometer = GameObject.Find("Speedometer").GetComponent<GUIText>();
+		BrakeMessage = GameObject.Find("Braking").GetComponent<GUIText>();
 	}
 
 
@@ -51,6 +53,8 @@ public class CarController : MonoBehaviour {
 			rearRightWheel.brakeTorque = brake;
 			frontLeftWheel.motorTorque = 0;
 			frontRightWheel.motorTorque = 0;
+
+			BrakeMessage.enabled = true;
 		} 
 		// Not braking, apply power to front wheels
 		else 
@@ -61,11 +65,13 @@ public class CarController : MonoBehaviour {
 			rearRightWheel.brakeTorque = 0;
 			frontLeftWheel.motorTorque = power;
 			frontRightWheel.motorTorque = power;
+
+			BrakeMessage.enabled = false;
 		}
 
 		int currentSpeed = (int) rigidbody.velocity.magnitude;
 
-		// Update GUI values based on the state of the car
+		// Update GUI values of Speedometer based on the state of the car
 		Speedometer.text = currentSpeed + " Km/H";
 	}
 

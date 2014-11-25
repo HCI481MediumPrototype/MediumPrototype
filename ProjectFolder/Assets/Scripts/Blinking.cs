@@ -17,7 +17,7 @@ public class Blinking : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () {
-		visible = active;
+		visible = activated;
 		texture = this.GetComponent<GUITexture>();
 	}
 
