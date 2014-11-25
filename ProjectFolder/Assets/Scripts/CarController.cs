@@ -72,7 +72,7 @@ public class CarController : MonoBehaviour {
 		int currentSpeed = (int) rigidbody.velocity.magnitude;
 
 		// Update GUI values of Speedometer based on the state of the car
-		Speedometer.text = currentSpeed + " Km/H";
+		Speedometer.text = currentSpeed + "";
 	}
 
 
