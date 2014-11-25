@@ -20,22 +20,13 @@ public float maxTurn = 720f;
 	{
 		if((-maxTurn<curRotation || Input.GetAxis("Horizontal") > 0) &&(curRotation < maxTurn || Input.GetAxis("Horizontal") < 0))
 		{
-			if(Input.GetKey(KeyCode.LeftControl))
-			{
-				transform.Rotate(new Vector3(0,0,Input.GetAxis("Horizontal")*lowTurnSpeed));
-				curRotation += Input.GetAxis("Horizontal")*lowTurnSpeed;
-			}
-			else if(Input.GetKey(KeyCode.LeftShift))
-			{
-				transform.Rotate(new Vector3(0,0,Input.GetAxis("Horizontal")*highTurnSpeed));
-				curRotation += Input.GetAxis("Horizontal")*highTurnSpeed;
-			}
-			else
-			{
-				transform.Rotate(new Vector3(0,0,Input.GetAxis("Horizontal")*turnSpeed));
-				curRotation += Input.GetAxis("Horizontal")*turnSpeed;
-			}
+			
+			transform.rotation = Quaternion.Euler(transform.parent.eulerAngles.x,transform.parent.eulerAngles.y,Input.GetAxis("Horizontal")*180);
+				curRotation = Input.GetAxis("Horizontal")*180;
+			
 		}
+		
+		
 
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
