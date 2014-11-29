@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 /**
@@ -21,7 +22,7 @@ public class CarController : MonoBehaviour {
 	public WheelCollider rearLeftWheel;
 	public WheelCollider rearRightWheel;
 
-	private GUIText Speedometer;
+	private Text Speedometer;
 	private GUIText BrakeMessage;
 	
 	void Start()
@@ -29,7 +30,7 @@ public class CarController : MonoBehaviour {
 		// Make center of mass lower and more forward to prevent tipping
 		rigidbody.centerOfMass = new Vector3(0, -0.5f ,0.3f);
 
-		Speedometer = GameObject.Find("Speedometer").GetComponent<GUIText>();
+		Speedometer = GameObject.Find("SpeedText").GetComponent<Text>();
 		BrakeMessage = GameObject.Find("Braking").GetComponent<GUIText>();
 	}
 
