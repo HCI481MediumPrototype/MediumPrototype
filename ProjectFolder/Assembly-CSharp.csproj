@@ -49,7 +49,10 @@
      <Compile Include="Assets\Scripts\Blinking.cs" />
      <Compile Include="Assets\Scripts\CarController.cs" />
      <Compile Include="Assets\Scripts\DashboardController.cs" />
+     <Compile Include="Assets\Scripts\TimerScript.cs" />
      <Compile Include="Assets\Scripts\TurningWheelScript.cs" />
+     <Compile Include="Assets\Scripts\crashRestartScript.cs" />
+     <Compile Include="Assets\Scripts\goalScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
