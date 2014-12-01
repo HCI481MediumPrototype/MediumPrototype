@@ -31,9 +31,9 @@ public class goalScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-	GameObject car = GameObject.FindGameObjectWithTag ("MainCamera");
+		GameObject car = GameObject.FindGameObjectWithTag ("MainCamera");
 
-	if(objectivesCompleted >= objectivesNum && car.rigidbody.velocity.magnitude < 1 && primary)
+		if(objectivesCompleted >= objectivesNum && car.rigidbody.velocity.magnitude < 1 && primary)
 		{
 			Application.LoadLevel(Application.loadedLevel + 1);
 			Debug.Log ("hey");

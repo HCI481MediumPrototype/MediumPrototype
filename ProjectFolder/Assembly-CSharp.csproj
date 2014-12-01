@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\DashboardController.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
      <Compile Include="Assets\Scripts\TurningWheelScript.cs" />
+     <Compile Include="Assets\Scripts\YouWin.cs" />
      <Compile Include="Assets\Scripts\crashRestartScript.cs" />
      <Compile Include="Assets\Scripts\goalScript.cs" />
  <Reference Include="UnityEngine.UI">
