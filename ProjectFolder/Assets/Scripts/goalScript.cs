@@ -5,10 +5,11 @@ public class goalScript : MonoBehaviour {
 
 	public static int objectivesCompleted = 0;
 	public int objectivesNum = 0;
+	public bool primary = true;
 
 	// Use this for initialization
 	void Start () {
-	
+		objectivesCompleted = 0;
 	}
 
 	void OnTriggerEnter(Collider otherCollider)
@@ -32,9 +33,10 @@ public class goalScript : MonoBehaviour {
 
 	GameObject car = GameObject.FindGameObjectWithTag ("MainCamera");
 
-	if(objectivesCompleted >= objectivesNum && car.rigidbody.velocity.magnitude < 1)
+	if(objectivesCompleted >= objectivesNum && car.rigidbody.velocity.magnitude < 1 && primary)
 		{
 			Application.LoadLevel(Application.loadedLevel + 1);
+			Debug.Log ("hey");
 		}
 	}
 }
